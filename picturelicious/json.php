@@ -179,7 +179,7 @@ else if( isset($_GET['rate']) ) {
   DB::query( 'DELETE FROM '.TABLE_IPLOCK.' WHERE ts < :1', time() - Config::$ipLockTime );
 
   // return JSON Data
-  header( 'Content-Type', 'text/plain' );
+  header( 'Content-Type: application/json' );
   $r = DB::getRow( 'SELECT id, score, votes FROM '.TABLE_IMAGES.' WHERE id = :1', $_POST['id'] );
   echo '{"id":"'.$r['id'].'","score":"'.number_format($r['score'],1).'","votes":"'.($r['votes']).'"}';
   exit(0);
