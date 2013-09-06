@@ -84,7 +84,7 @@ else if( $r[0] == 'static' ) {
     include( 'static/'.$m[1].'.html.php' );
     include( Config::$templates.'footer.tpl.php' );
   } else {
-    header( 'HTTP/1.0 404 Not Found' );
+    header( $_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found');
     include( Config::$templates.'404.tpl.php' );
   }
 }
@@ -144,7 +144,7 @@ else if( //----------------------------------------------------- view
     $cache->capture();
     include( Config::$templates.'view.tpl.php' );
   } else {
-    header( 'HTTP/1.0 404 Not Found' );
+    header( $_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found');
     include( Config::$templates.'404.tpl.php' );
   }
 }
@@ -178,7 +178,7 @@ else if( //----------------------------------------------------- browse
     $cache->capture();
     include( Config::$templates.'browse.tpl.php' );
   } else {
-    header( 'HTTP/1.0 404 Not Found' );
+    header( $_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found');
     include( Config::$templates.'404.tpl.php' );
   }
 }
@@ -272,7 +272,7 @@ else if( $r[0] == 'quicktags' ) { //------------------------------------------- 
 }
 
 else { //------------------------------------------------------- 404
-  header( 'HTTP/1.0 404 Not Found' );
+  header( $_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found');
   include( Config::$templates.'404.tpl.php' );
   $cache->disable();
 }
