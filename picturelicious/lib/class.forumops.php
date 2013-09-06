@@ -7,7 +7,7 @@ function userdata_convert(&$userdata) {
       $vbuser['email'] = $userdata['email'];
    if (isset($userdata['pass']))
       $vbuser['password'] = $userdata['pass'];
-	  
+
    return $vbuser;
 }
 
@@ -48,21 +48,21 @@ class ForumOps extends vB_DataManager_User {
    var $userdm;
 
 // *********************************************************************************************************
-	
+
    function __construct( &$vbulletin ) // constructor
    {
       $this->vbulletin =& $vbulletin;
       $this->userdm =& datamanager_init('user', $vbulletin, ERRTYPE_ARRAY);
    }
-   
+
    function ForumOps() // constructor
    {
       global $vbulletin;
       $this->userdm =& datamanager_init('User', $vbulletin, ERRTYPE_ARRAY);
    }
 
-	// *********************************************************************************************************
-	
+  // *********************************************************************************************************
+
    //======== USER REGISTRATION / UPDATE / DELETE ========
 
    function register_newuser(&$userdata, $login = true)
@@ -72,7 +72,7 @@ class ForumOps extends vB_DataManager_User {
       foreach($vbuser as $key => $value)
          $this->userdm->set($key, $value);
       $this->userdm->set('usergroupid', REGISTERED_USERGROUP);
-	  $this->userdm->set('timezoneoffset', 1);
+    $this->userdm->set('timezoneoffset', 1);
 
       // Bitfields; set to desired defaults.
       // Comment out those you have set as defaults
@@ -99,7 +99,7 @@ class ForumOps extends vB_DataManager_User {
    {
       global $vbulletin;
       $vbuser = userdata_convert($userdata);
-	  
+
       if (!($existing_user = fetch_userinfo_from_username($vbuser['username'])))
          return 'fetch_userinfo_from_username() failed.';
 
@@ -118,54 +118,54 @@ class ForumOps extends vB_DataManager_User {
       $vbulletin->userinfo['userid'] = $this->userdm->save();
       return NULL;
    }
-   
-   
+
+
 // *********************************************************************************************************
 
    function update_avatar(&$userdata)   {
-	   global $vbulletin;
-	   $vbuser = userdata_convert($userdata);
-		  
-		if (!($existing_user = fetch_userinfo_from_username($vbuser['username'])))
-			return 'fetch_userinfo_from_username() failed.';
+     global $vbulletin;
+     $vbuser = userdata_convert($userdata);
 
-		$this->userdm->set_existing($existing_user);
-		  
-		// update avatar in case it should be
-		if (!empty($vbuser['avatarurl'])) {
-			//~ echo"<pre>";
-				//~ print_r ($existing_user);
-			//~ echo "</pre>";
-		  
-			// begin custom avatar code
-			require_once(DIR . '/includes/class_upload.php');
-			require_once(DIR . '/includes/class_image.php');
+    if (!($existing_user = fetch_userinfo_from_username($vbuser['username'])))
+      return 'fetch_userinfo_from_username() failed.';
 
-			$upload = new vB_Upload_Userpic($vbulletin);
+    $this->userdm->set_existing($existing_user);
 
-			$upload->data =& datamanager_init('Userpic_Avatar', $vbulletin, ERRTYPE_STANDARD, 'userpic');
-			$upload->image =& vB_Image::fetch_library($vbulletin);
-			$upload->userinfo =& $existing_user;
-			cache_permissions($existing_user, false);
-			$upload->maxwidth = $vbulletin->userinfo['permissions']['avatarmaxwidth'];
-			$upload->maxheight = $vbulletin->userinfo['permissions']['avatarmaxheight'];
-			if (!$upload->process_upload($vbuser['avatarurl'])) {
-				echo $upload->fetch_error();
-			}
-		}
-		else { // no avatar used!
-			$userpic =& datamanager_init('Userpic_Avatar', $vbulletin, ERRTYPE_CP, 'userpic');
-			$userpic->condition = "userid = " . $existing_user['userid'];
-			$userpic->delete();
-		}
-	$this->userdm->set_existing($vbulletin->userinfo);
+    // update avatar in case it should be
+    if (!empty($vbuser['avatarurl'])) {
+      //~ echo"<pre>";
+        //~ print_r ($existing_user);
+      //~ echo "</pre>";
 
-	($hook = vBulletinHook::fetch_hook('profile_updateavatar_complete')) ? eval($hook) : false;
+      // begin custom avatar code
+      require_once(DIR . '/includes/class_upload.php');
+      require_once(DIR . '/includes/class_image.php');
+
+      $upload = new vB_Upload_Userpic($vbulletin);
+
+      $upload->data =& datamanager_init('Userpic_Avatar', $vbulletin, ERRTYPE_STANDARD, 'userpic');
+      $upload->image =& vB_Image::fetch_library($vbulletin);
+      $upload->userinfo =& $existing_user;
+      cache_permissions($existing_user, false);
+      $upload->maxwidth = $vbulletin->userinfo['permissions']['avatarmaxwidth'];
+      $upload->maxheight = $vbulletin->userinfo['permissions']['avatarmaxheight'];
+      if (!$upload->process_upload($vbuser['avatarurl'])) {
+        echo $upload->fetch_error();
+      }
+    }
+    else { // no avatar used!
+      $userpic =& datamanager_init('Userpic_Avatar', $vbulletin, ERRTYPE_CP, 'userpic');
+      $userpic->condition = "userid = " . $existing_user['userid'];
+      $userpic->delete();
+    }
+  $this->userdm->set_existing($vbulletin->userinfo);
+
+  ($hook = vBulletinHook::fetch_hook('profile_updateavatar_complete')) ? eval($hook) : false;
     return NULL;
    }
-   
+
 // *********************************************************************************************************
-	
+
    function delete_user(&$username)
    {
    // The vBulletin documentation suggests using userdm->delete()
@@ -264,37 +264,37 @@ class ForumOps extends vB_DataManager_User {
    */
    }
 
-	function set_email( $username, $email ) {
-		global $vbulletin;
+  function set_email( $username, $email ) {
+    global $vbulletin;
         $db = &$vbulletin->db;
-		$db->query_write("UPDATE " . TABLE_PREFIX . "user SET email = '"
-			.mysql_real_escape_string($email)."' WHERE username = '"
-			.mysql_real_escape_string($username)."'"
-		);
-	}
-	
-	function set_pass( $username, $pass ) {
-		global $vbulletin;
+    $db->query_write("UPDATE " . TABLE_PREFIX . "user SET email = '"
+      .mysql_real_escape_string($email)."' WHERE username = '"
+      .mysql_real_escape_string($username)."'"
+    );
+  }
+
+  function set_pass( $username, $pass ) {
+    global $vbulletin;
         $db = &$vbulletin->db;
-		$pass = md5($pass);
-		$salt = $this->fetch_user_salt();
-		$db->query_write("UPDATE " . TABLE_PREFIX . "user SET password = '"
-			.mysql_real_escape_string(md5($pass.$salt))."', 
-			salt = '".mysql_real_escape_string($salt)."' WHERE username = '"
-			.mysql_real_escape_string($username)."'"
-		);
-	}
-	
-	function fetch_user_salt($length = SALT_LENGTH) {
-		$salt = '';
+    $pass = md5($pass);
+    $salt = $this->fetch_user_salt();
+    $db->query_write("UPDATE " . TABLE_PREFIX . "user SET password = '"
+      .mysql_real_escape_string(md5($pass.$salt))."', 
+      salt = '".mysql_real_escape_string($salt)."' WHERE username = '"
+      .mysql_real_escape_string($username)."'"
+    );
+  }
 
-		for ($i = 0; $i < $length; $i++)
-		{
-			$salt .= chr(rand(33, 126));
-		}
+  function fetch_user_salt($length = SALT_LENGTH) {
+    $salt = '';
 
-		return $salt;
-	}
+    for ($i = 0; $i < $length; $i++)
+    {
+      $salt .= chr(rand(33, 126));
+    }
+
+    return $salt;
+  }
 
    // ======== USER LOGIN / LOGOUT ========
 
