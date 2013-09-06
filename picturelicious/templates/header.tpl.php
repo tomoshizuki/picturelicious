@@ -32,6 +32,7 @@
   <div class="menuItems">
     <a href="<?php echo Config::$absolutePath; ?>upload">Upload</a>
     <a href="<?php echo Config::$absolutePath; ?>users">Users</a>
+    <a href="<?php echo Config::$absolutePath; ?>comments">Comments</a>
     <a href="<?php echo Config::$absolutePath; ?>quicktags">Quick-Tagging</a>
     <a href="<?php echo Config::$absolutePath; ?>static/bookmarklet">Bookmarklet</a> 
     <?php if( Config::$vbbIntegration['enabled'] ) { ?>
