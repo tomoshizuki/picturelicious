@@ -1,17 +1,4 @@
 <?php 
-require_once( 'lib/config.php' );
-require_once( 'lib/users.php' );
-require_once( 'lib/db.php' );
-
-header("Content-type: text/html; charset=UTF-8");
-$user = new User();
-$user->login();
-
-if( !$user->admin ) {
-  echo "You need to be logged in as an admin user!";
-  exit();
-}
-
 
 $newComments = DB::query( 
   'SELECT 
@@ -34,7 +21,7 @@ include( 'templates/header.tpl.php' );
         <img class="avatarSmall" width="16" height="16" src="<?php echo Config::$absolutePath.$c['avatar']; ?>"/>
         <a href="<?php echo Config::$absolutePath.'user/'.$c['name']; ?>"><?php echo $c['name']; ?></a>
         at <?php echo date('d. M Y H:i',$c['created']); ?> 
-        [bild:<a href="<?php echo Config::$absolutePath.'all/view/'.$c['keyword']; ?>"><?php echo $c['keyword']; ?></a>]
+        [image:<a href="<?php echo Config::$absolutePath.'all/view/'.$c['keyword']; ?>"><?php echo $c['keyword']; ?></a>]
         <?php if($user->admin) { ?>
           <div style="float:right;" id="del">
             <a href="#" onclick="return delComment(<?php echo $c['id']; ?>, this)">[x]</a>
