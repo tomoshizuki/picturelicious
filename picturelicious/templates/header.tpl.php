@@ -53,7 +53,6 @@
     <?php } ?>
     <?php if( $user->admin ) { ?>
       <br/>Admin:
-      <a href="<?php echo Config::$absolutePath; ?>comments.php">Comments</a> /
       <a href="<?php echo Config::$absolutePath; ?>imageimport.php">Import</a>
     <?php } ?>
   </div>
