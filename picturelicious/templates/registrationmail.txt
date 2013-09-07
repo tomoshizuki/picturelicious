@@ -1,4 +1,4 @@
-From: no-reply@picturelicious.net
+From: Picturelicious <no-reply@picturelicious.net>
 Subject: Welcome to %siteName%!
 
 Hello %userName%, 

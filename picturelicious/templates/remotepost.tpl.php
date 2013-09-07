@@ -22,11 +22,11 @@
     <input type="hidden" name="remember" value="1"/>
   </form>
 <?php } else if( $user->isSpamLocked() ) { ?>
-  <p>Sorry, you are not allowed to post more than 10 Images in 2 Hours.</p>
+  <p>Sorry, you are not allowed to post more than 10 images in 2 Hours.</p>
 <?php } else if( $status == 'ready' ) { ?>
-  <p>Please click on the Image you want to post!</p>
+  <p>Please click on the image you want to post!</p>
 <?php } else if( $status == 'failed' ) { ?>
-  <p>Sorry, the Image could not be posted for the following reason:</p>
+  <p>Sorry, the image could not be posted for the following reason:</p>
   <p><strong><?php echo implode(' ', $uploadErrors); ?></strong></p>
 <?php } else if( $status == 'posted' ) { ?>
   <p>Image posted! Thank you!</p>

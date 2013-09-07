@@ -11,9 +11,9 @@ $newComments = DB::query(
     ON i.id = c.imageId
   ORDER BY c.created DESC LIMIT 100'
 );
-include( 'templates/header.tpl.php' );
+include( Config::$templates.'header.tpl.php' );
 ?>
-<h2>Newest Comments:</h2>
+<h2>Newest comments:</h2>
 <div style="width: 700px;">
   <?php foreach( $newComments as $c ) {?>
     <div class="comment">
@@ -35,5 +35,5 @@ include( 'templates/header.tpl.php' );
 
 
 <?php 
-include( 'templates/footer.tpl.php' );
+include( Config::$templates.'footer.tpl.php' );
 ?>

@@ -1,8 +1,8 @@
-<?php include( $templates.'header.tpl.php' ); ?>
+<?php include( Config::$templates.'header.tpl.php' ); ?>
 
 
-<div class="warn">No Images found</div>
+<div class="warn">No images found</div>
 
 
 
-<?php include( $templates.'footer.tpl.php' ); ?>
+<?php include( Config::$templates.'footer.tpl.php' ); ?>

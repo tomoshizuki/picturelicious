@@ -4,7 +4,7 @@
 
 <p>
   With the Remote Post Bookmarklet you can easily post images to <?php echo Config::$siteName ?> with one simple click. 
-  Please note that you need a decent Browser, like  <a href="http://getfirefox.com/">Firefox</a> or 
+  Please note that you need a decent browser, like  <a href="http://getfirefox.com/">Firefox</a> or 
   <a href="http://www.opera.com/">Opera</a>, or at least Microsofts IE7 for this to work.
 </p>
 <p>

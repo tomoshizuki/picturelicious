@@ -1,22 +1,23 @@
-<?php include( $templates.'header.tpl.php' ); ?>
+<?php include( Config::$templates.'header.tpl.php' ); ?>
 
 <form action="<?php echo Config::$absolutePath; ?>upload" enctype="multipart/form-data" method="POST">
   <fieldset>
     <legend>Upload / Post</legend>
 
     <p>
-      Images must be no larger than <strong>4069x4096</strong> and must not exceed <strong>2 MB</strong>. 
-      If the image is already in our Database, the upload will fail. Please follow our rules:
+      Images must be no larger than <strong>4096x4096</strong> and must not exceed <strong>2 MB</strong>. 
+      If the specific image file is already in our database, the upload will fail. Please follow our rules:
     </p>
 
-    <ul>
-      <li> Absolutely NO pictures of child (Less 18 Yrs.), preteen or animal porn.</li>
-      <li> NO pictures of racist propaganda. No snuff pictures!</li>
-      <li> NO HARDCORE (porn) contents!!</li>
-      <li> No crappy low quality pics!</li>
-    </ul>
+    <ol>
+      <li> Absolutely NO pictures of children (less than 18 yrs.) or animal porn.</li>
+      <li> NO pictures of racist propaganda.</li>
+      <li> NO snuff pictures!</li>
+      <li> NO HARDCORE porn <a href="https://en.wikipedia.org/wiki/Hardcore_pornography">contents</a>!!</li>
+      <li> NO crappy low quality pics!</li>
+    </ol>
 
-    <p>You can either upload an Image directly from your Computer, or specify an URL to copy the image From.</p>
+    <p>You can either upload an image directly from your computer, or specify an URL to copy the image from.</p>
 
     <?php if( !empty( $uploadErrors ) ) { ?>
       <div class="warn">
@@ -53,4 +54,4 @@
   </fieldset>
 </form>
 
-<?php include( $templates.'footer.tpl.php' ); ?>
+<?php include( Config::$templates.'footer.tpl.php' ); ?>

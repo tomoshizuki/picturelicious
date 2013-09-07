@@ -1,13 +1,13 @@
-<?php include( $templates.'header.tpl.php' ); ?>
+<?php include( Config::$templates.'header.tpl.php' ); ?>
 
 <h1>
   &raquo; Viewing
   <?php if( !empty($iv->user) ) { ?>
-    User: <a href="<?php echo Config::$absolutePath.'user/'.$iv->user['name']; ?>"><?php echo $iv->user['name']; ?></a>
+    user: <a href="<?php echo Config::$absolutePath.'user/'.$iv->user['name']; ?>"><?php echo $iv->user['name']; ?></a>
   <?php } else if( !empty($iv->channel) ) { ?>
-    Channel: <a href="<?php echo Config::$absolutePath.'channel/'.$iv->channel['keyword']; ?>"><?php echo $iv->channel['name']; ?></a>
+    channel: <a href="<?php echo Config::$absolutePath.'channel/'.$iv->channel['keyword']; ?>"><?php echo $iv->channel['name']; ?></a>
   <?php } else { ?>
-    All
+    all
   <?php } ?>
 </h1>
 
@@ -93,15 +93,15 @@
       <?php } ?>
     </div>
 
-    Post in Forum: <input type="text" readonly="1" value="[URL=<?php echo Config::$frontendPath ?>][IMG]<?php echo Config::$frontendPath.Config::$images['imagePath'].$iv->image['path']; ?>[/IMG][/URL]" style="width: 400px; font-size:10px" onclick="this.focus();this.select();"/>
+    Post in forum: <input type="text" readonly="1" value="[URL=<?php echo Config::$frontendPath ?>][IMG]<?php echo Config::$frontendPath.Config::$images['imagePath'].$iv->image['path']; ?>[/IMG][/URL]" style="width: 400px; font-size:10px" onclick="this.focus();this.select();"/>
 
 
 
     <div class="comments">
       <?php if( $iv->commentCount == 1 ) { ?>
-        <h3>1 Comment:</h3>
+        <h3>1 comment:</h3>
       <?php } else if( $iv->commentCount > 1 ) { ?>
-        <h3><?php echo $iv->commentCount ?> Comments:</h3>
+        <h3><?php echo $iv->commentCount ?> comments:</h3>
       <?php } else { ?>
         <h3>No comments yet!</h3>
       <?php } ?>
@@ -126,7 +126,7 @@
         <form method="post" class="addComment" action="<?php echo Config::$absolutePath.$iv->basePath.'view/'.$iv->image['keyword']; ?>">
           <div>
             <textarea name="content" rows="3" cols="60"></textarea>
-            <input class="submit" type="submit" name="addComment" value="Submit Comment"/>
+            <input class="submit" type="submit" name="addComment" value="Submit comment"/>
           </div>
         </form>
       <?php } ?>
@@ -140,4 +140,4 @@
 </script>
 
 
-<?php include( $templates.'footer.tpl.php' ); ?>
+<?php include( Config::$templates.'footer.tpl.php' ); ?>

@@ -1,11 +1,11 @@
-<?php include( $templates.'header.tpl.php' ); ?>
+<?php include( Config::$templates.'header.tpl.php' ); ?>
 
 <form action="<?php echo Config::$absolutePath; ?>register" method="post">
   <fieldset>
-    <legend>Create Account</legend>
+    <legend>Create account</legend>
 
     <?php if( isset($messages['nameInUse']) ) { ?>
-      <div class="warn">This Username is allready registered!</div>
+      <div class="warn">This username is already registered!</div>
     <?php } ?>
 
     <?php if( isset($messages['nameInvalid']) ) { ?>
@@ -21,11 +21,11 @@
     <?php } ?>
 
     <?php if( isset($messages['emailInUse']) ) { ?>
-      <div class="warn">There is already a registered user with this E-Mail address!</div>
+      <div class="warn">There is already a registered user with this E-mail address!</div>
     <?php } ?>
 
     <?php if( isset($messages['wrongEmail']) ) { ?>
-      <div class="warn">Your E-Mail address seems to be invalid!</div>
+      <div class="warn">Your E-mail address seems to be invalid!</div>
     <?php } ?>
 
 
@@ -60,4 +60,4 @@
   </fieldset>
 </form>
 
-<?php include( $templates.'footer.tpl.php' ); ?>
+<?php include( Config::$templates.'footer.tpl.php' ); ?>

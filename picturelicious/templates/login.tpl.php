@@ -1,4 +1,4 @@
-<?php include( $templates.'header.tpl.php' ); ?>
+<?php include( Config::$templates.'header.tpl.php' ); ?>
 
 <form action="<?php echo Config::$absolutePath; ?>login" method="post">
   <fieldset>
@@ -16,7 +16,7 @@
         <input type="text" name="name" value="<?php echo htmlspecialchars($_POST['name']); ?>"/>
       </dd>
 
-      <dt>Passwort:</dt>
+      <dt>Password:</dt>
       <dd>
         <input type="password" name="pass" />
       </dd>
@@ -37,4 +37,4 @@
   </fieldset>
 </form>
 
-<?php include( $templates.'footer.tpl.php' ); ?>
+<?php include( Config::$templates.'footer.tpl.php' ); ?>

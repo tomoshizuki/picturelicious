@@ -1,6 +1,6 @@
-<?php include( $templates.'header.tpl.php' ); ?>
+<?php include( Config::$templates.'header.tpl.php' ); ?>
 <h1>
-  &raquo; Browsing Users,
+  &raquo; Browsing users,
   Page: <?php echo $ul->pages['current']; ?> of <?php echo $ul->pages['total']; ?>
 </h1>
 
@@ -42,4 +42,4 @@
   <div style="clear: both;"></div>
 </div>
 
-<?php include( $templates.'footer.tpl.php' ); ?>
+<?php include( Config::$templates.'footer.tpl.php' ); ?>

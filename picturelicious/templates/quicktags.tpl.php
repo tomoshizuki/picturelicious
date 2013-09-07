@@ -1,4 +1,4 @@
-<?php include( $templates.'header.tpl.php' ); ?>
+<?php include( Config::$templates.'header.tpl.php' ); ?>
 
 <script type="text/javascript" src="<?php echo Config::$absolutePath; ?>media/quicktags.js"></script>
 <h1>
@@ -42,7 +42,7 @@
   </p>
 
   <p>
-    <strong>Don't abuse the system in any way, or the wrath of the administrator will come done on you!</strong>
+    <strong>Don't abuse the system in any way, or the wrath of the administrator will come down on you!</strong>
   </p>
 
 
@@ -74,4 +74,4 @@
   <br/>
 </div>
 
-<?php include( $templates.'footer.tpl.php' ); ?>
+<?php include( Config::$templates.'footer.tpl.php' ); ?>

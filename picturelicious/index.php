@@ -272,7 +272,7 @@ else if( $r[0] == 'quicktags' ) { //------------------------------------------- 
 }
 
 else if( $r[0] == 'comments' ) { //------------------------------------------- comments
-  include( Config::$templates.'comments.tpl.php');
+  include( Config::$templates.'comments.tpl.php' );
 }
 
 else { //------------------------------------------------------- 404
