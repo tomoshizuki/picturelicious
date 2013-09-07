@@ -176,7 +176,7 @@ class User {
     }
 
     if( empty($this->email) && 
-      preg_match('/^[\.\w\-]{1,}@[\.\w\-]{2,}\.[\w]{2,}$/', $_POST['email']) 
+      preg_match('/^[\.\w\-\+]{1,}@[\.\w\-]{2,}\.[\w]{2,}$/', $_POST['email']) 
     ) {
       if( Config::$vbbIntegration['enabled'] ) { 
         $forum->set_email( $_SESSION['name'], $_POST['email']);
@@ -237,7 +237,7 @@ class User {
       $messages['passNotEqual'] = true;
     }
 
-    if( !preg_match( '/^[\.\w\-]{1,}@[\.\w\-]{2,}\.[\w]{2,}$/', $_POST['email'] ) ) {
+    if( !preg_match( '/^[\.\w\-\+]{1,}@[\.\w\-]{2,}\.[\w]{2,}$/', $_POST['email'] ) ) {
       $messages['wrongEmail'] = true;
     } else {
       $u = DB::getRow( 'SELECT * FROM '.TABLE_USERS.' WHERE email = :1', $_POST['email'] );
