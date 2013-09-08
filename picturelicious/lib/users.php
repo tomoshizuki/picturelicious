@@ -287,7 +287,7 @@ class User {
     $mail['subject'] = str_replace( '%siteName%', Config::$siteName, $mail['subject'] );
     $mail['subject'] = str_replace( '%userName%', $_POST['name'], $mail['subject'] );
 
-    mail( $_POST['email'], $mail['subject'], $mail['text'], 'FROM: '.$mail['from'] );
+    mail( $_POST['email'], $mail['subject'], $mail['text'], 'From: '.$mail['from']."\n".'Content-Type: text/plain; charset="utf-8"' );
     return true;
   }
 }
