@@ -13,8 +13,8 @@ class Image {
     $srcX = 0;
     $srcY = 0;
     if( 
-      $srcWidth < 1 || $srcWidth > 4096
-      || $srcHeight < 1 || $srcHeight > 4096
+      $srcWidth < 200 || $srcWidth > 4096
+      || $srcHeight < 200 || $srcHeight > 4096
     ) {
       return false;
     }
