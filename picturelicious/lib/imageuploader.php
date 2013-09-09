@@ -71,7 +71,7 @@ class ImageUploader {
     $time = time();
     $keyword = Keyword::get( $fileMatch[1] );
 
-    // Iterate over all keywords, if this one is allready taken
+    // Iterate over all keywords, if this one is already taken
     $taken = array();
     $r = DB::query( 'SELECT keyword FROM '.TABLE_IMAGES.' WHERE keyword LIKE :1', date('Y/m/',$time).$keyword.'%' );
     foreach( $r as $v ) {

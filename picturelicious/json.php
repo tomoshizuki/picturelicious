@@ -137,7 +137,7 @@ else if( isset($_GET['rate']) ) {
   // score is in valid range / not float?
   if( in_array( $_POST['score'], array(1,2,3,4,5) ) ) {
 
-    // check if this ip has allready rated this quote
+    // check if this ip has already rated this quote
     list(, $ip) = unpack('l',pack('l',ip2long($_SERVER['REMOTE_ADDR'])));
     $r = DB::getRow( 'SELECT ip FROM '.TABLE_IPLOCK.' 
       WHERE ip = :1 AND imageId = :2', 

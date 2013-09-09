@@ -22,7 +22,7 @@ class Keyword {
     return $kw;
   }
 
-  // Check if a keyword has allready been taken. if so, return $keyword-N, where N is an increasing number
+  // Check if a keyword has already been taken. If so, return $keyword-N, where N is an increasing number
   // ---------------------------------------------------------------------------- 
   public static function iterate( $kw, $taken ) {
     $kwLower = strtolower( $kw );
