@@ -4,6 +4,7 @@
   <title><?php if( $iv && $iv->image && $iv->image['tags']){ echo htmlspecialchars($iv->image['tags'])?> - <?php } ?><?php echo Config::$siteTitle; ?></title>
   <link rel="stylesheet" type="text/css" href="<?php echo Config::$absolutePath; ?>media/styles.css" />
   <link rel="icon" href="<?php echo Config::$absolutePath; ?>media/favicon.ico"/>
+  <link rel="search" type="application/opensearchdescription+xml" href="<?php echo Config::$absolutePath; ?>media/opensearch.php" title="<?php echo htmlspecialchars(Config::$siteName); ?>"/>
   <script type="text/javascript" src="<?php echo Config::$absolutePath; ?>media/picturelicious.js"></script>
 </head>
 <body>
