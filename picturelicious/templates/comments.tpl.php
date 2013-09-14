@@ -28,7 +28,7 @@ include( Config::$templates.'header.tpl.php' );
           </div>
         <?php } ?>
       </div>
-      <?php echo htmlspecialchars($c['content']); ?>
+      <?php echo nl2br(htmlspecialchars($c['content'])); ?>
     </div>
   <?php } ?>
 </div>
