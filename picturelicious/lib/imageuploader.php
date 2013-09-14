@@ -15,7 +15,7 @@ require_once( 'lib/keyword.php' );
 class ImageUploader {
 
   public static function copyFromUrl( $url, $tags, $referer, &$errors ) {
-    if( stripos( $url, 'http://' ) !== 0 ) {
+    if( stripos( $url, 'http://' ) !== 0 && stripos( $url, 'https://' ) !== 0 && stripos( $url, 'ftp://' ) !== 0 && stripos( $url, 'ftps://' ) !== 0 ) {
       $url = 'http://'.$url;
     }
     // no recursion, no non-images
