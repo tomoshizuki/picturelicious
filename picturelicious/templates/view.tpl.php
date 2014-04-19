@@ -133,10 +133,11 @@
     </div>
 
   </div>
-</div>
 
-<div class="randomThumbs">
-  <script type="text/javascript" src="<?php echo Config::$absolutePath;?>random/4/128x128/"></script>
+  <div class="randomThumbs">
+    <script type="text/javascript" src="<?php echo Config::$absolutePath;?>random/4/128x128/"></script>
+  </div>
+
 </div>
 
 <script type="text/javascript">
