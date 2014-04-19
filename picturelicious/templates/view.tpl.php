@@ -47,10 +47,6 @@
     <img id="image" onclick="swap(this, 'scaled', 'full')" class="scaled" src="<?php echo Config::$absolutePath.Config::$images['imagePath'].$iv->image['path']; ?>" alt="<?php echo htmlspecialchars($iv->image['tags']) ?>"/>
   </div>
 
-  <div class="randomThumbs">
-    <script type="text/javascript" src="<?php echo Config::$absolutePath;?>random/4/128x128/"></script>
-  </div>
-
   <div id="imageInfo">
     <div class="rating">
       <input type="hidden" value="<?php echo $iv->image['id'];?>" id="imageId"/>
@@ -137,6 +133,10 @@
     </div>
 
   </div>
+</div>
+
+<div class="randomThumbs">
+  <script type="text/javascript" src="<?php echo Config::$absolutePath;?>random/4/128x128/"></script>
 </div>
 
 <script type="text/javascript">
